@@ -10,28 +10,22 @@ async function loadAstrosData() {
     let craft = json.craft;
     
     for (let person of people) {
-        // Create a container div for each astronaut
         let astroContainer = document.createElement("div");
         astroContainer.classList.add("astroContainer");
   
-        // Create an image element
         let astroImage = document.createElement("img");
         astroImage.src = "astro.webp";
         astroImage.alt = person.name;
   
-        // Create a paragraph element for the astronaut's name
         let astroDescript = document.createElement("p");
         astroDescript.classList.add("astroDescript");
         astroDescript.innerHTML = `<b>${person.craft}:</b> ${person.name}`;
   
-        // Append image and information to the container
         astroContainer.appendChild(astroImage);
         astroContainer.appendChild(astroDescript);
   
-        // Append the container to the astroList
         astroList.appendChild(astroContainer);
 
-        // Animate astronaut
         animateCalmFloat(astroContainer, Math.random() * 360);
     
         astroContainer.addEventListener("mouseenter", () => {
@@ -44,10 +38,9 @@ async function loadAstrosData() {
     }
 }
 
-  // Function to add up and down float animation
 function animateCalmFloat(element, startAngle) {
-    let amplitude = 100; // Float amplitude in pixels
-    let frequency = 0.0001; // Float frequency
+    let amplitude = 100;
+    let frequency = 0.0001;
   
     function float() {
       let angle = startAngle + Date.now() * frequency;
@@ -60,8 +53,6 @@ function animateCalmFloat(element, startAngle) {
   
     float();
 }
-  
-// ... (your existing code)
 
 function createStar() {
     const star = document.createElement("div");
@@ -88,7 +79,7 @@ function getISSLocation() {
     fetch('http://api.open-notify.org/iss-now.json')
       .then(response => response.json())
       .then(data => {
-        const timestamp = new Date(data.timestamp * 1000); // Convert UNIX timestamp to JavaScript Date
+        const timestamp = new Date(data.timestamp * 1000);
         const latitude = data.iss_position.latitude;
         const longitude = data.iss_position.longitude;
 
