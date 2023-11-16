@@ -86,10 +86,6 @@ function getISSLocation() {
         const locationString = `Timestamp: ${timestamp.toLocaleString()}<br>Latitude: ${latitude}<br>Longitude: ${longitude}`;
         issLocationInfo.innerHTML = locationString;
       })
-      .catch(error => {
-        console.error('Error fetching ISS location:', error);
-        issLocationInfo.innerHTML = 'Failed to fetch ISS location.';
-      });
   }
 
 getISSLocation();
